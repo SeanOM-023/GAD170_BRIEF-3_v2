@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -33,5 +34,10 @@ public class PlayerStats : MonoBehaviour
     void heal(float healing) {
         hpValue += healing;
         hpBar.SetValue(hpValue);
+    }
+
+        public void ReloadGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

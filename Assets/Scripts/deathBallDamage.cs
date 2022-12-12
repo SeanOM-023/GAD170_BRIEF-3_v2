@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class deathBallDamage : MonoBehaviour
 {
+    public GameObject playerStats;
+
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.name);
@@ -11,7 +13,7 @@ public class deathBallDamage : MonoBehaviour
         {
             Debug.Log("Bump");
             Debug.Log(collision.gameObject.name);
-            Destroy(collision.gameObject);
+            playerStats.GetComponent<PlayerStats>().ReloadGame();
         }
 
     // Start is called before the first frame update
