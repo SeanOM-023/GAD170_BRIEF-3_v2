@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HPbar : MonoBehaviour
 {
-
+    public GameObject playerStats;
     public Slider hpSlider;
 
     public void InitBar(float maxValue) {
@@ -17,4 +17,11 @@ public class HPbar : MonoBehaviour
         hpSlider.value = hpvalue;
     }
 
+    void Update()
+    {
+    if (hpSlider.value <= 0)
+    {
+    playerStats.GetComponent<PlayerStats>().ReloadGame();
+    }
+    }
 }

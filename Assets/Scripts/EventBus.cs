@@ -9,6 +9,7 @@ public class EventBus : MonoBehaviour
     //Makes an Event 
     public static EventBus Current { get { return _current; } }
 
+    public bool gameWon;
 
     private void Awake()
     {
@@ -20,5 +21,24 @@ public class EventBus : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+
+    public event Action DestroyTingleWall;
+    // is the Event trigger 
+    public void DestroyTingleWallTrigger()
+    {
+        DestroyTingleWall();
+    }
+
+    public bool WinState()
+    {
+        gameWon = true;
+        return gameWon;
+    }
+
+    //public event PlayerWins()
+    //{       
+    
+        
+    //}
 
 }
